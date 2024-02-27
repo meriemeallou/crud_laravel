@@ -7,8 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
-    <h1>CRUD laravel</h1>
+    <h1>Liste des etudiants</h1>
     <hr>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
     <a href="/ajouter" class="btn btn-primary" role="button">Ajouter etudiant</a>
     <hr>
     <table class="table">
@@ -23,16 +28,18 @@
     </tr>
   </thead>
   <tbody>
+    @foreach($etudiants as $etudiant)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>5eme</td>
+      <th scope="row">{{$etudiant->id}}</th>
+      <td>{{$etudiant->nom}}</td>
+      <td>{{$etudiant->prenom}}</td>
+      <td>{{$etudiant->classe}}</td>
       <td> 
-        <a href="#" class="btn btn-outline-info">Update</a>
+        <a href="/update-etudiant/{{$etudiant->id}}" class="btn btn-outline-info">Update</a>
         <a href="#" class="btn btn-outline-danger">Delete</a>
       </td>
     </tr>
+    @endforeach
   </tbody>
 </table>
 
