@@ -28,17 +28,23 @@
     </tr>
   </thead>
   <tbody>
+    @php 
+      $ide = 1;
+    @endphp
     @foreach($etudiants as $etudiant)
     <tr>
-      <th scope="row">{{$etudiant->id}}</th>
+      <th scope="row">{{ $ide }}</th>
       <td>{{$etudiant->nom}}</td>
       <td>{{$etudiant->prenom}}</td>
       <td>{{$etudiant->classe}}</td>
       <td> 
         <a href="/update-etudiant/{{$etudiant->id}}" class="btn btn-outline-info">Update</a>
-        <a href="#" class="btn btn-outline-danger">Delete</a>
+        <a href="/delete-etudiant/{{$etudiant->id}}" class="btn btn-outline-danger">Delete</a>
       </td>
     </tr>
+    @php 
+      $ide += 1; 
+    @endphp
     @endforeach
   </tbody>
 </table>
