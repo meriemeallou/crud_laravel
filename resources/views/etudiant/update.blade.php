@@ -20,12 +20,10 @@
         @endforeach
     </ul>
 
-    <form action="/update-etudiant/{{$etudiants->id}}" method="POST">
+    <form action="/update/traitement" method="POST">
     @csrf
     @method('PUT')
     <input type="text" style="dispaly: none;" name="id" value="{{$etudiants->id}}">
-    
-
   <div class="mb-3">
     <label for="nom" class="form-label">Nom</label>
     <input type="text" class="form-control" id="nom" name="nom" value="{{$etudiants->nom}}">
@@ -39,7 +37,7 @@
     <input type="text" class="form-control" id="classe" name="classe" value="{{$etudiants->classe}}">
   </div>
   <button type="submit" class="btn btn-primary">Modifier un etudiant</button>
-  <a href="/etudiant" class="btn btn-primary">Liste des etudiants</a>
+  <a href="/" class="btn btn-primary">Liste des etudiants</a>
 </form>
 
 

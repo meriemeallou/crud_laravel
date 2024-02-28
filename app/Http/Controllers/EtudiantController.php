@@ -31,10 +31,10 @@ class EtudiantController extends Controller
         return redirect('/ajouter')->with('status', 'Etudiant a bien ete ajoute avec succes');
     }
     public function update_etudiant($id){
-        $etudiants = Etudiant::findOrFail($id);
+        $etudiants = Etudiant::find($id);
         return view('etudiant.update', compact('etudiants'));
     }
-    public function update_etudiant_traitement(Request $request, $id){
+    public function update_etudiant_traitement(Request $request){
         $request->validate([
             'nom' =>'required',
             'prenom' =>'required',
@@ -42,12 +42,12 @@ class EtudiantController extends Controller
 
         ]);
 
-        $etudiant =Etudiant::findOrFail($request->id);
+        $etudiant =Etudiant::find($request->id);
         $etudiant->nom =$request->nom;
         $etudiant->prenom =$request->prenom;
         $etudiant->classe =$request->classe;
         $etudiant->update();
 
-        return redirect('/etudiant')->with('status', 'Etudiant a bien ete modifie avec succes');
+        return redirect('/')->with('status', 'Etudiant a bien ete modifie avec succes');
     }
 }
