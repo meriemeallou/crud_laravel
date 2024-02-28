@@ -35,7 +35,7 @@
     <input type="text" class="form-control" id="classe" name="classe" >
   </div>
   <button type="submit" class="btn btn-primary">Ajouter un etudiant</button>
-  <a href="/etudiant" class="btn btn-primary">Liste des etudiants</a>
+  <a href="/" class="btn btn-primary">Liste des etudiants</a>
 </form>
 
 

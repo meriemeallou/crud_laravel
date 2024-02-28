@@ -8,7 +8,7 @@ use App\Models\Etudiant;
 class EtudiantController extends Controller
 {
     public function liste_etudiant(){
-        $etudiants = Etudiant::all();
+        $etudiants = Etudiant::paginate(4);
         return view('etudiant.liste',compact('etudiants'));
     }
     public function ajouter_etudiant(){
